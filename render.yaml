@@ -1,0 +1,10 @@
+services:
+  - type: static
+    name: your-project-name # Replace with your project name
+    env: NODE_VERSION=20.11.0 # Optional: Specify Node version
+    buildCommand: npm install && npm run build
+    staticRoot: dist
+    headers:
+      - path: /*
+        name: Content-Security-Policy
+        value: "default-src 'self'; script-src 'self' 'unsafe-eval'; style-src 'self' 'unsafe-inline';"
